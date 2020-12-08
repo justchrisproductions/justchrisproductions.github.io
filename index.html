@@ -111,7 +111,6 @@
 		document.getElementById("podcastGrid").appendChild("<div class=\"w3-col w3-container m4 l3  w3-red\"><p>hello</p></div>");
 		console.log("after " + i);*/
 		var someText = "ggg"
-		
 
 		var element = document.createElement("div");
 		var h = document.createElement("H1");
@@ -125,10 +124,7 @@
 		element.className += " l3"; 
 		element.className +=  " w3-section";
 		element.className +=  " elementGrid";
-		if(i%2 == 0)
-			element.className += " w3-yellow";
-		else
-			element.className += " w3-red";	
+		element.className += " w3-yellow";
 		document.getElementById('podcastGrid').appendChild(element);
 		/*document.write("<img src=\"" + i + ".jpg\"/>");
 		document.write("<br />");*/
