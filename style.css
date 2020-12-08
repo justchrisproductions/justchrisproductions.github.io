@@ -4,12 +4,6 @@ body, html {
 }
 
 
-.gridElement{
-  max-height: 10%;
-}
-
-
-
 .parallax {
   /* The image used */
   
@@ -81,9 +75,6 @@ body, html {
   }
 }
 
-.elementGrid
-{
-	background-color: orange;
+.gridElement{
+  max-height: 10%;
 }
-
-
