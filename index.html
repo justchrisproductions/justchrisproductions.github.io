@@ -81,7 +81,7 @@
 
 	<script>
 
-	var HTML_FILE_URL = 'contact.html';
+	var HTML_FILE_URL = 'episodesText.html';
 
 	$(document).ready(function() {
 	    $.get(HTML_FILE_URL, function(data) {
@@ -106,37 +106,33 @@
 	}
 
 	function populateGrid(body) {
-		console.log("Hello");
-		var i=0;
-		for (i=0;i<=5;i++)
-		{
-			/*
-			console.log("Hello " + i);
-			document.getElementById("podcastGrid").appendChild("<div class=\"w3-col w3-container m4 l3  w3-red\"><p>hello</p></div>");
-			console.log("after " + i);*/
-			var someText = "ggg"
-			
+		/*
+		console.log("Hello " + i);
+		document.getElementById("podcastGrid").appendChild("<div class=\"w3-col w3-container m4 l3  w3-red\"><p>hello</p></div>");
+		console.log("after " + i);*/
+		var someText = "ggg"
+		
 
-			var element = document.createElement("div");
-			var h = document.createElement("H1");
-			var hText = document.createTextNode(someText);
-			h.appendChild(hText); 
-			element.appendChild(h)
-			element.appendChild(document.createTextNode(body));
-			element.className += " w3-col";
-			element.className += " w3-container"; 
-			element.className += " m4"; 
-			element.className += " l3"; 
-			element.className +=  " w3-section";
-			element.className +=  " elementGrid";
-			if(i%2 == 0)
-				element.className += " w3-yellow";
-			else
-				element.className += " w3-red";	
-			document.getElementById('podcastGrid').appendChild(element);
-			/*document.write("<img src=\"" + i + ".jpg\"/>");
-			document.write("<br />");*/
-		}
+		var element = document.createElement("div");
+		var h = document.createElement("H1");
+		var hText = document.createTextNode(someText);
+		h.appendChild(hText); 
+		element.appendChild(h)
+		element.appendChild(document.createTextNode(body));
+		element.className += " w3-col";
+		element.className += " w3-container"; 
+		element.className += " m4"; 
+		element.className += " l3"; 
+		element.className +=  " w3-section";
+		element.className +=  " elementGrid";
+		if(i%2 == 0)
+			element.className += " w3-yellow";
+		else
+			element.className += " w3-red";	
+		document.getElementById('podcastGrid').appendChild(element);
+		/*document.write("<img src=\"" + i + ".jpg\"/>");
+		document.write("<br />");*/
+		
 	}
 	</script>
 
