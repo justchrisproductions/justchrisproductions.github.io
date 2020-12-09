@@ -80,19 +80,6 @@
 
 
 	<script>
-	/*
-	var HTML_FILE_URL = 'contact.html';
-
-	$(document).ready(function() {
-	    $.get(HTML_FILE_URL, function(data) {
-	        var fileDom = $(data);
-	        fileDom.find('p').each(function() {
-	            populateGrid($(this).text());
-	        });
-	    });
-	});
-
-	*/
 
 	var HTML_FILE_URL = 'contact.html';
 
@@ -106,7 +93,7 @@
 	            /*populateGrid($(this));*/
 	        });
 
-	        var showChar = 300;
+	        var showChar = 250;
 	        	var ellipsestext = "...";
 	        	var moretext = "more";
 	        	var lesstext = "less";
@@ -150,17 +137,6 @@
 	        	});
 	    });
 	});
-
-	var el = document.createElement( 'html' );
-	el.innerHTML = "<html><head><title>titleTest</title></head><body><p>some</p><a href='test0'>test01</a><a href='test1'>test02</a><a href='test2'>test03</a></body></html>";
-
-	list = el.getElementsByTagName( 'a' );
-	list2 = el.getElementsByTagName('p')
-	console.log(list[0]);
-	console.log(list2[0]);
-
-	/*populateGrid(text);*/
-	
 
 	// Open and close sidebar
 	function w3_open() {
