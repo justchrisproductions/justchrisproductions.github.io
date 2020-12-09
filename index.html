@@ -101,14 +101,9 @@
 	$(document).ready(function() {
 	    $.get(HTML_FILE_URL, function(data) {
 	        var fileDom = $(data);
-	        listDiv = fileDom.find('div');
-	        console.log(listDiv);
-	        console.log(listDiv[0]);
-	        console.log(listDiv[1]);
-	        /*
-	        fileDom.find('p').each(function() {
-	            populateGrid($(this).text());
-	        });*/
+	        fileDom.find('div').each(function() {
+	            populateGrid($(this));
+	        });
 	    });
 	});
 
@@ -133,7 +128,7 @@
 	  document.getElementById("mySidebar").style.display = "none";
 	}
 
-	function populateGrid(body) {
+	function populateGrid(div) {
 		/*
 		console.log("Hello " + i);
 		document.getElementById("podcastGrid").appendChild("<div class=\"w3-col w3-container m4 l3  w3-red\"><p>hello</p></div>");
@@ -141,11 +136,14 @@
 		var someText = "ggg"
 
 		var element = document.createElement("div");
+		/*
 		var h = document.createElement("H1");
 		var hText = document.createTextNode(someText);
 		h.appendChild(hText); 
 		element.appendChild(h)
 		element.appendChild(document.createTextNode(body));
+*/
+		element.appendChild(div)
 		element.className += " w3-col";
 		element.className += " w3-container"; 
 		element.className += " m4"; 
