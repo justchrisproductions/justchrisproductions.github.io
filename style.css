@@ -78,6 +78,4 @@ body, html {
 .gridElement{
   max-height: 10%;
   word-wrap: break-word;
-  /*display: flex;
-  flex: 1;*/
 }
