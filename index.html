@@ -80,8 +80,22 @@
 
 
 	<script>
-	
-/*
+	/*
+	var HTML_FILE_URL = 'contact.html';
+
+	$(document).ready(function() {
+	    $.get(HTML_FILE_URL, function(data) {
+	        var fileDom = $(data);
+	        fileDom.find('p').each(function() {
+	            populateGrid($(this).text());
+	        });
+	    });
+	});
+
+	*/
+
+	var text = "<p>Here we are, week four and Chris hosts his first guest(s). Together, the group discusses their time at D&E, some motivation of what drives them, a personal take on content houses and the plan to implement their own, and finish off with what it was like to grow up around livestock in the country.<br>More guests to come in the near future.....<br>George's gaming channel: <a href=\"https://www.youtube.com/channel/UCj0yjq7hekMmM6h42Dd5-sw\" target=\"_blank\">here</a>.</p>"
+
 	var HTML_FILE_URL = 'contact.html';
 
 	$(document).ready(function() {
@@ -89,14 +103,23 @@
 	        var fileDom = $(data);
 	        fileDom.find('div').each(function() {
 	        	console.log($(this));
-	        	$("#podcastGrid").append($(this)); //.fadeIn('slow')
+	        	$("#podcastGrid").append($(this)); /*.fadeIn('slow')*/
+	        	console.log($(this));
+	        	
+	            /*populateGrid($(this));*/
 	        });
 	    });
 	});
-*/
 
+	var el = document.createElement( 'html' );
+	el.innerHTML = "<html><head><title>titleTest</title></head><body><p>some</p><a href='test0'>test01</a><a href='test1'>test02</a><a href='test2'>test03</a></body></html>";
 
-	populateGrid();
+	list = el.getElementsByTagName( 'a' );
+	list2 = el.getElementsByTagName('p')
+	console.log(list[0]);
+	console.log(list2[0]);
+
+	/*populateGrid(text);*/
 	
 
 	// Open and close sidebar
@@ -109,26 +132,22 @@
 	  document.getElementById("mySidebar").style.display = "none";
 	}
 
-	function populateGrid() {
+	function populateGrid(div) {
 		/*
 		console.log("Hello " + i);
 		document.getElementById("podcastGrid").appendChild("<div class=\"w3-col w3-container m4 l3  w3-red\"><p>hello</p></div>");
 		console.log("after " + i);*/
-		for(int i; i < 5; i++){
-
-
 		var someText = "ggg"
 
-		var text = "<p>Here we are, week four and Chris hosts his first guest(s). Together, the group discusses their time at D&E, some motivation of what drives them, a personal take on content houses and the plan to implement their own, and finish off with what it was like to grow up around livestock in the country.<br>More guests to come in the near future.....<br>George's gaming channel: <a href=\"https://www.youtube.com/channel/UCj0yjq7hekMmM6h42Dd5-sw\" target=\"_blank\">here</a>.</p>"
-
 		var element = document.createElement("div");
-		
+		/*
 		var h = document.createElement("H1");
 		var hText = document.createTextNode(someText);
 		h.appendChild(hText); 
 		element.appendChild(h)
 		element.appendChild(document.createTextNode(body));
-		element.appendChild(text)
+*/
+		element.appendChild(div)
 		element.className += " w3-col";
 		element.className += " w3-container"; 
 		element.className += " m4"; 
@@ -137,7 +156,6 @@
 		element.className += " w3-yellow";
 		element.className += " gridElement";
 		document.getElementById('podcastGrid').appendChild(element);
-	}
 		/*document.write("<img src=\"" + i + ".jpg\"/>");
 		document.write("<br />");*/
 		
