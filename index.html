@@ -106,23 +106,48 @@
 	            /*populateGrid($(this));*/
 	        });
 
-	        $('.gridParag').each(function(event){ /* select all divs with the  gridParag class */
-	            var max_length = 25; /* set the max content length before a read more link will be added */
+	        var showChar = 300;
+	        	var ellipsestext = "...";
+	        	var moretext = "more";
+	        	var lesstext = "less";
+	        	$('.gridParag').each(function() {
+	        	  var content = $(this).html();
+	        	  var textcontent = $(this).text();
 
-	            if($(this).html().length > max_length){ /* check for content length */
-	                var short_content   = $(this).html().substr(0,max_length); /* split the content in two parts */
-	                var long_content    = $(this).html().substr(max_length);
+	        	  if (textcontent.length > showChar) {
 
-	                $(this).html(short_content+
-	                    '<a href="#" class="read_more"><br/>read more...</a>'+
-	                    '<span class="more_text" style="display:none;">'+long_content+'</span>'); /* Alter the html to allow the read more functionality */
+	        	    var c = textcontent.substr(0, showChar);
+	        	    //var h = content.substr(showChar-1, content.length - showChar);
 
-	                $(this).find('a.read_more').click(function(event){ /* find the a.read_more element within the new html and bind the following code to it */
-	                    event.preventDefault(); /* prevent the a from changing the url */
-	                    $(this).parents('.gridParag').find('.more_text').show(); /* show the .more_text span */
+	        	    var html = '<span class="container"><span>' + c + '</span>' + '<span class="moreelipses">' + ellipsestext + '</span></span><span class="morecontent">' + content + '</span>';
+
+	        	    $(this).html(html);
+	                $(this).after('<a href="" class="morelink">' + moretext + '</a>');
+	        	  }
+
+	        	});
+
+	        	$(".morelink").click(function() {
+	        	  if ($(this).hasClass("less")) {
+	        	    $(this).removeClass("less");
+	        	    $(this).html(moretext);
+	                $(this).prev().children('.morecontent').fadeToggle(500, function(){
+	                  $(this).prev().fadeToggle(500);
 	                });
-	            }
-	        });
+	               
+	        	  } else {
+	        	    $(this).addClass("less");
+	        	    $(this).html(lesstext);
+	                $(this).prev().children('.container').fadeToggle(500, function(){
+	                  $(this).next().fadeToggle(500);
+	                });
+	        	  }
+	              //$(this).prev().children().fadeToggle();
+	        	  //$(this).parent().prev().prev().fadeToggle(500);
+	        	  //$(this).parent().prev().delay(600).fadeToggle(500);
+	        	  
+	        	  return false;
+	        	});
 	    });
 	});
 
@@ -146,7 +171,7 @@
 	function w3_close() {
 	  document.getElementById("mySidebar").style.display = "none";
 	}
-	
+
 	</script>
 
 
