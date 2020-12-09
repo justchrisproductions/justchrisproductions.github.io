@@ -102,7 +102,7 @@
 	    $.get(HTML_FILE_URL, function(data) {
 	        var fileDom = $(data);
 	        fileDom.find('div').each(function() {
-	        	$("#podcastGrid").prepend($(this).fadeIn('slow'));
+	        	$("#podcastGrid").prepend($(this)); /*.fadeIn('slow')*/
 	        	
 	            /*populateGrid($(this));*/
 	        });
@@ -117,7 +117,7 @@
 	console.log(list[0]);
 	console.log(list2[0]);
 
-	populateGrid(text);
+	/*populateGrid(text);*/
 	
 
 	// Open and close sidebar
