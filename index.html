@@ -94,8 +94,6 @@
 
 	*/
 
-	var text = "<p>Here we are, week four and Chris hosts his first guest(s). Together, the group discusses their time at D&E, some motivation of what drives them, a personal take on content houses and the plan to implement their own, and finish off with what it was like to grow up around livestock in the country.<br>More guests to come in the near future.....<br>George's gaming channel: <a href=\"https://www.youtube.com/channel/UCj0yjq7hekMmM6h42Dd5-sw\" target=\"_blank\">here</a>.</p>"
-
 	var HTML_FILE_URL = 'contact.html';
 
 	$(document).ready(function() {
@@ -104,9 +102,26 @@
 	        fileDom.find('div').each(function() {
 	        	console.log($(this));
 	        	$("#podcastGrid").append($(this)); /*.fadeIn('slow')*/
-	        	console.log($(this));
 	        	
 	            /*populateGrid($(this));*/
+	        });
+
+	        $('.gridParag').each(function(event){ /* select all divs with the  gridParag class */
+	            var max_length = 25; /* set the max content length before a read more link will be added */
+
+	            if($(this).html().length > max_length){ /* check for content length */
+	                var short_content   = $(this).html().substr(0,max_length); /* split the content in two parts */
+	                var long_content    = $(this).html().substr(max_length);
+
+	                $(this).html(short_content+
+	                    '<a href="#" class="read_more"><br/>read more...</a>'+
+	                    '<span class="more_text" style="display:none;">'+long_content+'</span>'); /* Alter the html to allow the read more functionality */
+
+	                $(this).find('a.read_more').click(function(event){ /* find the a.read_more element within the new html and bind the following code to it */
+	                    event.preventDefault(); /* prevent the a from changing the url */
+	                    $(this).parents('.gridParag').find('.more_text').show(); /* show the .more_text span */
+	                });
+	            }
 	        });
 	    });
 	});
@@ -131,26 +146,7 @@
 	function w3_close() {
 	  document.getElementById("mySidebar").style.display = "none";
 	}
-
-	$(function(){ /* to make sure the script runs after page load */
-	    $('.gridElement').each(function(event){ /* select all divs with the  gridElement class */
-	        var max_length = 25; /* set the max content length before a read more link will be added */
-
-	        if($(this).html().length > max_length){ /* check for content length */
-	            var short_content   = $(this).html().substr(0,max_length); /* split the content in two parts */
-	            var long_content    = $(this).html().substr(max_length);
-
-	            $(this).html(short_content+
-	                '<a href="#" class="read_more"><br/>read more...</a>'+
-	                '<span class="more_text" style="display:none;">'+long_content+'</span>'); /* Alter the html to allow the read more functionality */
-
-	            $(this).find('a.read_more').click(function(event){ /* find the a.read_more element within the new html and bind the following code to it */
-	                event.preventDefault(); /* prevent the a from changing the url */
-	                $(this).parents('.gridElement').find('.more_text').show(); /* show the .more_text span */
-	            });
-	        }
-	    });
-	});
+	
 	</script>
 
 
