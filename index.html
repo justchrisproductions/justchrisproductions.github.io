@@ -102,7 +102,9 @@
 	    $.get(HTML_FILE_URL, function(data) {
 	        var fileDom = $(data);
 	        fileDom.find('div').each(function() {
-	            populateGrid($(this));
+	        	$("#podcastGrid").prepend($(this).fadeIn('slow'));
+	        	
+	            /*populateGrid($(this));*/
 	        });
 	    });
 	});
