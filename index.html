@@ -100,8 +100,11 @@
 
 	$(document).ready(function() {
 	    $.get(HTML_FILE_URL, function(data) {
-	        var fileDom = $(data).innerHTML;
-	        console.log(fileDom);
+	        var fileDom = $(data);
+	        listDiv = fileDom.getElementsByTagName('div')
+	        console.log(listDiv);
+	        console.log(listDiv[0]);
+	        console.log(listDiv[1]);
 	        /*
 	        fileDom.find('p').each(function() {
 	            populateGrid($(this).text());
