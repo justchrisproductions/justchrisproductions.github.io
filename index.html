@@ -132,34 +132,25 @@
 	  document.getElementById("mySidebar").style.display = "none";
 	}
 
-	function populateGrid(div) {
-		/*
-		console.log("Hello " + i);
-		document.getElementById("podcastGrid").appendChild("<div class=\"w3-col w3-container m4 l3  w3-red\"><p>hello</p></div>");
-		console.log("after " + i);*/
-		var someText = "ggg"
+	$(function(){ /* to make sure the script runs after page load */
+	    $('.gridElement').each(function(event){ /* select all divs with the  gridElement class */
+	        var max_length = 25; /* set the max content length before a read more link will be added */
 
-		var element = document.createElement("div");
-		/*
-		var h = document.createElement("H1");
-		var hText = document.createTextNode(someText);
-		h.appendChild(hText); 
-		element.appendChild(h)
-		element.appendChild(document.createTextNode(body));
-*/
-		element.appendChild(div)
-		element.className += " w3-col";
-		element.className += " w3-container"; 
-		element.className += " m4"; 
-		element.className += " l3"; 
-		element.className +=  " w3-section";
-		element.className += " w3-yellow";
-		element.className += " gridElement";
-		document.getElementById('podcastGrid').appendChild(element);
-		/*document.write("<img src=\"" + i + ".jpg\"/>");
-		document.write("<br />");*/
-		
-	}
+	        if($(this).html().length > max_length){ /* check for content length */
+	            var short_content   = $(this).html().substr(0,max_length); /* split the content in two parts */
+	            var long_content    = $(this).html().substr(max_length);
+
+	            $(this).html(short_content+
+	                '<a href="#" class="read_more"><br/>read more...</a>'+
+	                '<span class="more_text" style="display:none;">'+long_content+'</span>'); /* Alter the html to allow the read more functionality */
+
+	            $(this).find('a.read_more').click(function(event){ /* find the a.read_more element within the new html and bind the following code to it */
+	                event.preventDefault(); /* prevent the a from changing the url */
+	                $(this).parents('.gridElement').find('.more_text').show(); /* show the .more_text span */
+	            });
+	        }
+	    });
+	});
 	</script>
 
 
