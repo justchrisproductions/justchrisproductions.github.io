@@ -101,7 +101,7 @@
 			</div>
 
 			<!-- Grid of Podcasts -->
-			<div class="w3-row-padding" id="podcastGrid"></div>
+			<div class="col-container" id="podcastGrid"></div>
 
 			<!-- Footer 
 			<footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge"> 
@@ -128,49 +128,6 @@
 	        	$("#podcastGrid").append($(this)); //.fadeIn('slow')
 	        	
 	        });
-
-	        var showChar = 250;
-	        	var ellipsestext = "...";
-	        	var moretext = "more";
-	        	var lesstext = "less";
-	        	$('.gridParag').each(function() {
-	        	  var content = $(this).html();
-	        	  var textcontent = $(this).text();
-
-	        	  if (textcontent.length > showChar) {
-
-	        	    var c = textcontent.substr(0, showChar);
-	        	    //var h = content.substr(showChar-1, content.length - showChar);
-
-	        	    var html = '<span class="container"><span>' + c + '</span>' + '<span class="moreelipses">' + ellipsestext + '</span></span><span class="morecontent">' + content + '</span>';
-
-	        	    $(this).html(html);
-	                $(this).after('<a href="" class="morelink">' + moretext + '</a>');
-	        	  }
-
-	        	});
-
-	        	$(".morelink").click(function() {
-	        	  if ($(this).hasClass("less")) {
-	        	    $(this).removeClass("less");
-	        	    $(this).html(moretext);
-	                $(this).prev().children('.morecontent').fadeToggle(500, function(){
-	                  $(this).prev().fadeToggle(500);
-	                });
-	               
-	        	  } else {
-	        	    $(this).addClass("less");
-	        	    $(this).html(lesstext);
-	                $(this).prev().children('.container').fadeToggle(500, function(){
-	                  $(this).next().fadeToggle(500);
-	                });
-	        	  }
-	              //$(this).prev().children().fadeToggle();
-	        	  //$(this).parent().prev().prev().fadeToggle(500);
-	        	  //$(this).parent().prev().delay(600).fadeToggle(500);
-	        	  
-	        	  return false;
-	        	});
 	    });
 	});
 	
