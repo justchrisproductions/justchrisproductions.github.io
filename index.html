@@ -41,15 +41,27 @@
 
 
 		<!-- !PAGE CONTENT! -->
-		
-		<div class="w3-content fullPage" style="max-width:100%">
+
+		<!--<div class="purpleSeparator">hello</div>-->
+	
+		<div class="w3-content fullPage padding-large container2" style="max-width:100%;" id="justc">
 			<!-- Header -->
-			<div class="w3-row">
-				<div class="w3-container w3-half">
+
+
+			<div id="wave">
+				<svg height="100%" width="100%" viewBox="0 0 500 500" preserveAspectRatio="xMinYMin meet" id="wave">
+				    <path d="M-6.54,156 C123.25,-4.04 255.30,270 503.61,161 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill:#9e5776;"></path>
+				</svg>
+			</div>
+
+
+			<div class="w3-row intro">
+
+				<div class="w3-container w3-half" style="padding-top: 1%">
 					<iframe src="https://open.spotify.com/embed-podcast/show/0ZsDyjTywtrco6vOwtupRe" width=100% height="232" frameborder="0" allowtransparency="false" allow="encrypted-media"></iframe>
 				</div>
 
-				<div class="w3-container w3-half">
+				<div class="w3-container w3-half header_text">
 
 					<div class="header_name">
 						<h1>
@@ -70,29 +82,42 @@
 						</div>
 
 						<div class="share_buttons">
-							<a href="#" class="fa fa-spotify"></a>
+							
 						</div>
 					</div>
 				</div>
 			</div>
 
+			<div class="w3-row socialMediaButtons">
+				<a href="#" class="fa fa-spotify faSM"></a>
+				<a href="#" class="fa fa-apple faSM"></a>
+				<a href="#" class="fa fa-google faSM"></a>
+				<a href="#" class="fa fa-youtube faSM"></a>
+				<a href="#" class="fa fa-soundcloud faSM"></a>
+			</div>
+
+			<div class="moreEpisodesTitle">
+				<h1>More Episodes</h1>
+			</div>
+
+			<!-- Grid of Podcasts -->
+			<div class="w3-row-padding" id="podcastGrid"></div>
+
+			<!-- Footer 
+			<footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge"> 
+			  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+			  <i class="fa fa-instagram w3-hover-opacity"></i>
+			  <i class="fa fa-twitter w3-hover-opacity"></i>
+			  <i class="fa fa-linkedin w3-hover-opacity"></i> -->
+			</footer>
+
 		</div>
-
-		<!-- Grid of Podcasts -->
-		<div class="w3-row-padding" id="podcastGrid"></div>
-
-		<!-- Footer -->
-		<footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge"> 
-		  <i class="fa fa-facebook-official w3-hover-opacity"></i>
-		  <i class="fa fa-instagram w3-hover-opacity"></i>
-		  <i class="fa fa-twitter w3-hover-opacity"></i>
-		  <i class="fa fa-linkedin w3-hover-opacity"></i>
-		</footer>
 
 	</body>
 
 
 	<script>
+		
 
 	var HTML_FILE_URL = 'contact.html';
 
@@ -100,10 +125,8 @@
 	    $.get(HTML_FILE_URL, function(data) {
 	        var fileDom = $(data);
 	        fileDom.find('div').each(function() {
-	        	console.log($(this));
-	        	$("#podcastGrid").append($(this)); /*.fadeIn('slow')*/
+	        	$("#podcastGrid").append($(this)); //.fadeIn('slow')
 	        	
-	            /*populateGrid($(this));*/
 	        });
 
 	        var showChar = 250;
@@ -150,6 +173,7 @@
 	        	});
 	    });
 	});
+	
 
 	// Open and close sidebar
 	function w3_open() {
