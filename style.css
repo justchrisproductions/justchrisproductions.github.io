@@ -51,9 +51,10 @@ body, html {
     padding: 0% 10% 0 0 !important;
 
   }
-  .col {
+  .episodesContainer {
     display: block;
     width: 100%;
+    padding-top: 5%;
   }
 }
 
@@ -67,6 +68,14 @@ body, html {
   }
   #wave svg path {
       d: path('M-6.54,206 C123.25,-4.04 255.30,331 503.61,212 L500.00,0.00 L0.00,0.00 Z') !important;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .episodesContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    padding-top: 5%;
   }
 }
 
@@ -240,4 +249,5 @@ svg {
 .episodesContainer {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  padding-top: 5%;
 }
