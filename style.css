@@ -70,12 +70,6 @@ body, html {
   }
 }
 
-@media only screen and (max-width: 1000px) {
-  .episodesContainer {
-    grid-template-columns: repeat(3, 1fr) !important;
-  }
-}
-
 @media only screen and (min-width: 1000px) {
   .scrollable_description::-webkit-scrollbar {
     display: none;              /* width of the entire scrollbar */
@@ -94,6 +88,9 @@ body, html {
 @media only screen and (max-width: 1200px) {
   #wave svg path {
       d: path('M-6.54,206 C123.25,-4.04 255.30,331 503.61,212 L500.00,0.00 L0.00,0.00 Z') !important;
+  }
+  .episodesContainer {
+    grid-template-columns: repeat(3, 1fr) !important;
   }
 }
 
