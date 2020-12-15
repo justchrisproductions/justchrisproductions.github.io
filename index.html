@@ -1,152 +1,23 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Just Chris</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-		<link rel="stylesheet" href="./style.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-	</head>
-	<body>
+---
+layout: default
+title: Home
+---
 
-		<!-- Navbar (sit on top) -->
-		<div class="w3-top">
-			<span class="w3-btn w3-xlarge w3-right w3-round-large w3-padding-large" onclick="w3_open()"><i class="fa fa-bars"></i></span> 
-		</div>
+<!-- Posts Index
+================================================== -->
+<div class="blog-grid-container">
+    {% for post in paginator.posts %}
+    	{% if post.path contains 'episodes/' %}
+        	{% include postbox.html %}
+        {% endif %}
+    {% endfor %}
+</div>
 
-		<!-- Sidebar -->
-		<nav class="w3-sidebar w3-black w3-animate-top w3-xxlarge" style="display:none;padding-top:10%" id="mySidebar">
-		  <a href="javascript:void(0)" onclick="w3_close()" class="w3-btn w3-black w3-xxlarge w3-padding w3-display-topright" style="padding:6px 24px">
-		    <i class="fa fa-remove"></i>
-		  </a>
-		  <div class="w3-bar-block w3-center">
-		  	<a href="./index.html" class="w3-bar-item w3-button w3-text-grey w3-hover-black">Home</a>
-		    <a href="./about.html" class="w3-bar-item w3-button w3-text-grey w3-hover-black">About</a>
-		    <a href="./episodes.html" class="w3-bar-item w3-button w3-text-grey w3-hover-black">Episodes</a>
-		    <a href="./blog.html" class="w3-bar-item w3-button w3-text-grey w3-hover-black">Blog</a>
-		    <a href="./contact.html" class="w3-bar-item w3-button w3-text-grey w3-hover-black">Contact</a>
-		  </div>
-		</nav>
+<!-- Pagination
+================================================== -->
+<div class="bottompagination">
+<span class="navigation" role="navigation">
+    {% include pagination.html %}
+</span>
+</div>
 
-
-		
-		<div class="parallax">
-			<section id="scrollDown" class="arrowDwn">
-				<a href="#justc"><span></span></a>
-			</section>
-		</div>
-
-
-
-		<!-- !PAGE CONTENT! -->
-
-		<!--<div class="purpleSeparator">hello</div>-->
-	
-		<div class="w3-content fullPage padding-large container2" style="max-width:100%;" id="justc">
-			<!-- Header -->
-
-
-			<div id="wave">
-				<svg height="100%" width="100%" viewBox="0 0 500 500" preserveAspectRatio="xMinYMin meet" id="wave">
-				    <path d="M-6.54,156 C123.25,-4.04 255.30,270 503.61,161 L500.00,0.00 L0.00,0.00 Z" style="stroke: none; fill:#9e5776;"></path>
-				</svg>
-			</div>
-
-
-			<div class="w3-row intro">
-
-				<div class="w3-container w3-half" style="padding-top: 1%;">
-					<iframe src="https://open.spotify.com/embed-podcast/show/0ZsDyjTywtrco6vOwtupRe" width=100% height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-				</div>
-
-				<div class="w3-container w3-half header_text">
-
-					<div class="header_name">
-						<h1>
-							Just Chris
-						</h1>
-					</div>
-
-					<div class="header_author w3-section">
-						<div>
-							By Chris Carter
-						</div>
-					</div>
-
-					<div class="header_info">
-
-						<div class="scrollable_description">
-							A hot take on a new perspective hosted by Chris, who dives into life feet first and shares his thoughts on his world and the world around him. Consisting of the informal dialogue, the podcast covers the large, yet mere important topics that come to the mind of the host. Each episode, posted weekly, will take on new discussion based on the previous week's experiences.
-						</div>
-
-						<div class="share_buttons">
-							
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="w3-row socialMediaButtons">
-				<a href="#" class="fa fa-spotify faSM"></a>
-				<a href="#" class="fa fa-apple faSM"></a>
-				<a href="#" class="fa fa-google faSM"></a>
-				<a href="#" class="fa fa-youtube faSM"></a>
-				<a href="#" class="fa fa-soundcloud faSM"></a>
-			</div>
-
-			<div class="moreEpisodesTitle">
-				<h1>More Episodes</h1>
-			</div>
-
-			<!-- Grid of Podcasts -->
-			<div class="episodesContainer" id="podcastGrid"></div>
-
-
-			
-
-			<!-- Footer 
-			<footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-opacity w3-xlarge"> 
-			  <i class="fa fa-facebook-official w3-hover-opacity"></i>
-			  <i class="fa fa-instagram w3-hover-opacity"></i>
-			  <i class="fa fa-twitter w3-hover-opacity"></i>
-			  <i class="fa fa-linkedin w3-hover-opacity"></i> -->
-			</footer>
-
-		</div>
-
-	</body>
-
-
-	<script>
-		
-		
-
-	var HTML_FILE_URL = 'episodesText.html';
-
-	$(document).ready(function() {
-	    $.get(HTML_FILE_URL, function(data) {
-	        var fileDom = $(data);
-	        fileDom.find('div').each(function() {
-	        	$("#podcastGrid").append($(this)); //.fadeIn('slow')
-	        	
-	        });
-	    });
-	});
-	
-
-	// Open and close sidebar
-	function w3_open() {
-	  document.getElementById("mySidebar").style.width = "100%";
-	  document.getElementById("mySidebar").style.display = "block";
-	}
-
-	function w3_close() {
-	  document.getElementById("mySidebar").style.display = "none";
-	}
-
-	</script>
-
-
-</html>

@@ -1,0 +1,30 @@
+<div class="mdRow">
+  <div class="mdColumn">
+    {% for pic in site.static_files %}
+      {% if pic.path contains 'grid/' and pic.path contains 'col1/' %}
+        <img src="{{pic.path}}">
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="mdColumn">
+    {% for pic in site.static_files %}
+      {% if pic.path contains 'grid/' and pic.path contains 'col2/' %}
+        <img src="{{pic.path}}">
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="mdColumn">
+    {% for pic in site.static_files %}
+      {% if pic.path contains 'grid/' and pic.path contains 'col3/' %}
+        <img src="{{pic.path}}">
+      {% endif %}
+    {% endfor %}
+  </div>
+  <div class="mdColumn">
+    {% for pic in site.static_files %}
+      {% if pic.path contains 'grid/' and pic.path contains 'col4/' %}
+        <img src="{{pic.path}}">
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
