@@ -8,9 +8,9 @@
                 {% if post.image %}
 
                     {% if site.lazyimages == "enabled" %}
-                        <img class="img-thumb" src="{{post.image}}"> 
+                        <img class="img-thumb" src="/{{post.image}}"> 
                     {% else %}
-                        <img class="img-thumb" src="{{post.image}}"> 
+                        <img class="img-thumb" src="/{{post.image}}"> 
                     {% endif %}
 
                 {% endif %}
