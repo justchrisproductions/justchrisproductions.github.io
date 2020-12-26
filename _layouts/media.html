@@ -1,0 +1,40 @@
+---
+title: "Media"
+layout: default
+permalink: "/media.html"
+---
+
+
+
+<div class="blogMedia">
+	<form class="tabber">
+	  <label for="t1">Pictures</label style="padding: 20%">
+	  <input id="t1" name="food" type="radio" checked onclick="setVisibility('pictures','videos', 'block', 'none');" >
+	  <label for="t2">Videos</label>
+	  <input id="t2" name="food" type="radio" onclick="setVisibility('videos','pictures', 'block', 'none');">
+	  <div class="blob"></div>
+	</form>
+</div>
+
+
+
+
+<div id="videos">
+	<h1>Videos</h1>
+	{% include mediaVideos.html %}
+</div>
+
+<div id="pictures">
+	<h1>Pictures</h1>
+	{% include mediaGrid.html %}
+</div>
+
+<script language="JavaScript">
+	window.onload = setVisibility('pictures','videos', 'block', 'none');
+	function setVisibility(idShow, idHide, visibility1, visibility2) {
+		document.getElementById(idShow).style.display = visibility1;
+		document.getElementById(idHide).style.display = visibility2;
+	}
+</script>
+
+
