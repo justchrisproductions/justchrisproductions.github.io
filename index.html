@@ -1,23 +1,9 @@
 ---
-layout: default
+layout: home
 title: Home
 ---
 
-<!-- Posts Index
-================================================== -->
-<div class="blog-grid-container">
-    {% for post in paginator.posts %}
-    	{% if post.path contains 'episodes/' %}
-        	{% include postbox.html %}
-        {% endif %}
-    {% endfor %}
-</div>
-
-<!-- Pagination
-================================================== -->
-<div class="bottompagination">
-<span class="navigation" role="navigation">
-    {% include pagination.html %}
-</span>
+<div>
+	<iframe src="https://open.spotify.com/embed-podcast/show/0ZsDyjTywtrco6vOwtupRe" width="100%" height="232" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 </div>
 

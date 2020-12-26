@@ -111,10 +111,10 @@ img, img:hover {
 }
 .featured-image, .firstpage .blog-grid-item:nth-child(1), .firstpage .blog-grid-item:nth-child(2), .firstpage .blog-grid-item:nth-child(3) {
     animation: fade-up 0.7s ease-out forwards running;
+    
 }
 // menu
-.navbar-brand img {
-    max-height:80px;
+.navbar-bran img {
     margin-bottom:40px;
     margin-top:40px;
 }
@@ -697,6 +697,29 @@ t1:label {
   vertical-align: middle;
   width: 100%;
   animation: fade-up 0.7s ease-out forwards running;
+}
+
+
+.homeBar {
+    padding-bottom: 40px;
+}
+.homeBar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  display:inline-block;
+}
+.homeBar li {
+    display:inline-block;
+}
+.homeBar li a {
+  display: block;
+  padding: 8px;
+}
+.homeBar rounded{
+    border-top: 8px solid #bbb;
+    border-radius: 5px;
 }
 
 
